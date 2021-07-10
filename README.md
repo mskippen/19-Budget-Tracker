@@ -104,7 +104,7 @@ Try to add a code and push it to your github. It will automatically hook it to h
     Express
     MongoDB
     Mongoose
-    IndexedDB
+    IndexedDB: https://developer.chrome.com/docs/devtools/storage/indexeddb/?utm_source=devtools
     Bootstrap
 
 ## Demo
