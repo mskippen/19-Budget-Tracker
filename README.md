@@ -104,7 +104,10 @@ Try to add a code and push it to your github. It will automatically hook it to h
     Express
     MongoDB
     Mongoose
-    IndexedDB: https://developer.chrome.com/docs/devtools/storage/indexeddb/?utm_source=devtools
+    IndexedDB: 
+        https://developer.chrome.com/docs/devtools/storage/indexeddb/?utm_source=devtools
+        https://hacks.mozilla.org/2012/02/storing-images-and-files-in-indexeddb/
+
     Bootstrap
 
 ## Demo

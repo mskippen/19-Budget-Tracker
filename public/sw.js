@@ -6,6 +6,7 @@ const cacheAssets = [
   "styles.css",
   "main.js",
   "index.js",
+  "db.js",
   "manifest.json",
   "/icons/icon-192x192.png",
   "/icons/logo-192x192.png",
