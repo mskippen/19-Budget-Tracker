@@ -34,11 +34,13 @@ request.onupgradeneeded = function (event) {
 
 request.onsuccess = function (event) {
   console.log("Success creating/accessing IndexedDB database");
-  db = request.result;
-  if(navigator.online) {
+  // db = request.result;
+  db = event.target.result;
+  if(navigator.onLine) {
+    console.log("back online")
     addToDatabase()
   } else {
-    addToDatabase()
+    // addToDatabase()
     console.log("You are offline")
   }
 
@@ -65,15 +67,35 @@ function addToDatabase() {
     const data = store.getAll()
     console.log(data)
 
-    fetch("/api/transaction/bulk", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
+    data.onsuccess = function () {
+      if(data.result.length > 0) {
+        fetch("/api/transaction/bulk", {
+          method: "POST",
+          body: JSON.stringify(data.result),
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            "Content-Type": "application/json"
+          }
+        }).then(response => {
+          return response.json()
+        })
+        .then(res => {
+          console.log(res)
+          if (res.length !== 0) {
+            // Open another transaction to BudgetStore with the ability to read and write
+            const transaction = db.transaction(['budget'], 'readwrite');
+
+            // Assign the current store to a variable
+            const currentStore = transaction.objectStore('budget');
+
+            // Clear existing entries because our bulk add was successful
+            currentStore.clear();
+            console.log('Clearing budget 🧹👍');
+          }
+        }).catch(err => console.log(err))
+
       }
-    }).then(response => {
-      console.log(response)
-    })
+    }
 }
 
 
