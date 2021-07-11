@@ -1,6 +1,8 @@
 body {
   font-size: 120%;
   font-family: Arial;
+  background-color: #222;
+  color: #fff;
 }
 
 button, input {
@@ -12,14 +14,24 @@ table {
   width: 100%;
 }
 
+nav {
+  padding: 1.5rem;
+}
+
+.brand {
+  text-transform: uppercase;
+}
+
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  font-size: 15px;
+  width: 50%;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  /* background-color: #dddddd; */
 }
 
 .error {
@@ -33,19 +45,48 @@ tr:nth-child(even) {
 }
 
 .total {
-  font-size: 150%;
+  font-size: 20px;
   text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .form {
   margin-top: 25px;
   width: 100%;
+  display: flex;
 }
 
 .transactions {
   text-align: left;
   max-height: 300px;
   overflow: auto;
-  width: 90%;
-  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.form input, .form button {
+  width: 25%;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.form button {
+  background: #d90166;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.form input {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+::placeholder {
+  color: rgb(143, 136, 136);
+  font-size: 12px;
+}
+
+canvas {
+  background: #fff;
+  margin-top: 1rem;
 }
